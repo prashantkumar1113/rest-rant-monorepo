@@ -21,6 +21,7 @@ function LoginForm() {
             `http://localhost:${process.env.REACT_APP_SERVER_PORT}/authentication/`,
             {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -32,7 +33,6 @@ function LoginForm() {
         console.log(data);
 
         if (response.status === 200) {
-            console.log("here");
             setCurrentUser(data.user);
             history.push("/");
         } else {
