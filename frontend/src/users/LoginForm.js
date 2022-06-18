@@ -32,8 +32,8 @@ function LoginForm() {
         console.log(data);
 
         if (response.status === 200) {
-            console.log("here");
             setCurrentUser(data.user);
+            console.log("here", data.token);
             history.push("/");
         } else {
             setErrorMessage(data.message);
