@@ -28,13 +28,16 @@ function EditPlaceForm() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        await fetch(`http://localhost:5000/places/${place.placeId}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(place),
-        });
+        await fetch(
+            `http://localhost:${process.env.REACT_APP_SERVER_PORT}/places/${place.placeId}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(place),
+            }
+        );
 
         history.push(`/places/${place.placeId}`);
     }
